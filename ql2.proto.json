@@ -1,0 +1,944 @@
+[ {
+  "moduleName" : "VersionDummy",
+  "child" : [ {
+    "enumName" : "Version",
+    "child" : [ {
+      "name" : "V0_1",
+      "value" : 1063369270
+    }, {
+      "name" : "V0_2",
+      "value" : 1915781601
+    }, {
+      "name" : "V0_3",
+      "value" : 1601562686
+    }, {
+      "name" : "V0_4",
+      "value" : 1074539808
+    }, {
+      "name" : "V1_0",
+      "value" : 885177795
+    } ]
+  }, {
+    "enumName" : "Protocol",
+    "child" : [ {
+      "name" : "PROTOBUF",
+      "value" : 656407617
+    }, {
+      "name" : "JSON",
+      "value" : 2120839367
+    } ]
+  } ]
+}, {
+  "moduleName" : "Query",
+  "child" : [ {
+    "enumName" : "QueryType",
+    "child" : [ {
+      "name" : "START",
+      "value" : 1
+    }, {
+      "name" : "CONTINUE",
+      "value" : 2
+    }, {
+      "name" : "STOP",
+      "value" : 3
+    }, {
+      "name" : "NOREPLY_WAIT",
+      "value" : 4
+    }, {
+      "name" : "SERVER_INFO",
+      "value" : 5
+    } ]
+  }, {
+    "type" : "QueryType",
+    "name" : "type",
+    "value" : 1,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "Term",
+    "name" : "query",
+    "value" : 2,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "int64",
+    "name" : "token",
+    "value" : 3,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "bool",
+    "name" : "OBSOLETE_noreply",
+    "value" : 4,
+    "options" : {
+      "default" : false
+    },
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "bool",
+    "name" : "accepts_r_json",
+    "value" : 5,
+    "options" : {
+      "default" : false
+    },
+    "modifier" : "OPTIONAL"
+  }, {
+    "moduleName" : "AssocPair",
+    "child" : [ {
+      "type" : "string",
+      "name" : "key",
+      "value" : 1,
+      "options" : null,
+      "modifier" : "OPTIONAL"
+    }, {
+      "type" : "Term",
+      "name" : "val",
+      "value" : 2,
+      "options" : null,
+      "modifier" : "OPTIONAL"
+    } ]
+  }, {
+    "type" : "AssocPair",
+    "name" : "global_optargs",
+    "value" : 6,
+    "options" : null,
+    "modifier" : "REPEATED"
+  } ]
+}, {
+  "moduleName" : "Frame",
+  "child" : [ {
+    "enumName" : "FrameType",
+    "child" : [ {
+      "name" : "POS",
+      "value" : 1
+    }, {
+      "name" : "OPT",
+      "value" : 2
+    } ]
+  }, {
+    "type" : "FrameType",
+    "name" : "type",
+    "value" : 1,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "int64",
+    "name" : "pos",
+    "value" : 2,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "string",
+    "name" : "opt",
+    "value" : 3,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  } ]
+}, {
+  "moduleName" : "Backtrace",
+  "child" : [ {
+    "type" : "Frame",
+    "name" : "frames",
+    "value" : 1,
+    "options" : null,
+    "modifier" : "REPEATED"
+  } ]
+}, {
+  "moduleName" : "Response",
+  "child" : [ {
+    "enumName" : "ResponseType",
+    "child" : [ {
+      "name" : "SUCCESS_ATOM",
+      "value" : 1
+    }, {
+      "name" : "SUCCESS_SEQUENCE",
+      "value" : 2
+    }, {
+      "name" : "SUCCESS_PARTIAL",
+      "value" : 3
+    }, {
+      "name" : "WAIT_COMPLETE",
+      "value" : 4
+    }, {
+      "name" : "SERVER_INFO",
+      "value" : 5
+    }, {
+      "name" : "CLIENT_ERROR",
+      "value" : 16
+    }, {
+      "name" : "COMPILE_ERROR",
+      "value" : 17
+    }, {
+      "name" : "RUNTIME_ERROR",
+      "value" : 18
+    } ]
+  }, {
+    "type" : "ResponseType",
+    "name" : "type",
+    "value" : 1,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "enumName" : "ErrorType",
+    "child" : [ {
+      "name" : "INTERNAL",
+      "value" : 1000000
+    }, {
+      "name" : "RESOURCE_LIMIT",
+      "value" : 2000000
+    }, {
+      "name" : "QUERY_LOGIC",
+      "value" : 3000000
+    }, {
+      "name" : "NON_EXISTENCE",
+      "value" : 3100000
+    }, {
+      "name" : "OP_FAILED",
+      "value" : 4100000
+    }, {
+      "name" : "OP_INDETERMINATE",
+      "value" : 4200000
+    }, {
+      "name" : "USER",
+      "value" : 5000000
+    }, {
+      "name" : "PERMISSION_ERROR",
+      "value" : 6000000
+    } ]
+  }, {
+    "type" : "ErrorType",
+    "name" : "error_type",
+    "value" : 7,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "enumName" : "ResponseNote",
+    "child" : [ {
+      "name" : "SEQUENCE_FEED",
+      "value" : 1
+    }, {
+      "name" : "ATOM_FEED",
+      "value" : 2
+    }, {
+      "name" : "ORDER_BY_LIMIT_FEED",
+      "value" : 3
+    }, {
+      "name" : "UNIONED_FEED",
+      "value" : 4
+    }, {
+      "name" : "INCLUDES_STATES",
+      "value" : 5
+    } ]
+  }, {
+    "type" : "ResponseNote",
+    "name" : "notes",
+    "value" : 6,
+    "options" : null,
+    "modifier" : "REPEATED"
+  }, {
+    "type" : "int64",
+    "name" : "token",
+    "value" : 2,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "Datum",
+    "name" : "response",
+    "value" : 3,
+    "options" : null,
+    "modifier" : "REPEATED"
+  }, {
+    "type" : "Backtrace",
+    "name" : "backtrace",
+    "value" : 4,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "Datum",
+    "name" : "profile",
+    "value" : 5,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  } ]
+}, {
+  "moduleName" : "Datum",
+  "child" : [ {
+    "enumName" : "DatumType",
+    "child" : [ {
+      "name" : "R_NULL",
+      "value" : 1
+    }, {
+      "name" : "R_BOOL",
+      "value" : 2
+    }, {
+      "name" : "R_NUM",
+      "value" : 3
+    }, {
+      "name" : "R_STR",
+      "value" : 4
+    }, {
+      "name" : "R_ARRAY",
+      "value" : 5
+    }, {
+      "name" : "R_OBJECT",
+      "value" : 6
+    }, {
+      "name" : "R_JSON",
+      "value" : 7
+    } ]
+  }, {
+    "type" : "DatumType",
+    "name" : "type",
+    "value" : 1,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "bool",
+    "name" : "r_bool",
+    "value" : 2,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "double",
+    "name" : "r_num",
+    "value" : 3,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "string",
+    "name" : "r_str",
+    "value" : 4,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "Datum",
+    "name" : "r_array",
+    "value" : 5,
+    "options" : null,
+    "modifier" : "REPEATED"
+  }, {
+    "moduleName" : "AssocPair",
+    "child" : [ {
+      "type" : "string",
+      "name" : "key",
+      "value" : 1,
+      "options" : null,
+      "modifier" : "OPTIONAL"
+    }, {
+      "type" : "Datum",
+      "name" : "val",
+      "value" : 2,
+      "options" : null,
+      "modifier" : "OPTIONAL"
+    } ]
+  }, {
+    "type" : "AssocPair",
+    "name" : "r_object",
+    "value" : 6,
+    "options" : null,
+    "modifier" : "REPEATED"
+  } ]
+}, {
+  "moduleName" : "Term",
+  "child" : [ {
+    "enumName" : "TermType",
+    "child" : [ {
+      "name" : "DATUM",
+      "value" : 1
+    }, {
+      "name" : "MAKE_ARRAY",
+      "value" : 2
+    }, {
+      "name" : "MAKE_OBJ",
+      "value" : 3
+    }, {
+      "name" : "VAR",
+      "value" : 10
+    }, {
+      "name" : "JAVASCRIPT",
+      "value" : 11
+    }, {
+      "name" : "UUID",
+      "value" : 169
+    }, {
+      "name" : "HTTP",
+      "value" : 153
+    }, {
+      "name" : "ERROR",
+      "value" : 12
+    }, {
+      "name" : "IMPLICIT_VAR",
+      "value" : 13
+    }, {
+      "name" : "DB",
+      "value" : 14
+    }, {
+      "name" : "TABLE",
+      "value" : 15
+    }, {
+      "name" : "GET",
+      "value" : 16
+    }, {
+      "name" : "GET_ALL",
+      "value" : 78
+    }, {
+      "name" : "EQ",
+      "value" : 17
+    }, {
+      "name" : "NE",
+      "value" : 18
+    }, {
+      "name" : "LT",
+      "value" : 19
+    }, {
+      "name" : "LE",
+      "value" : 20
+    }, {
+      "name" : "GT",
+      "value" : 21
+    }, {
+      "name" : "GE",
+      "value" : 22
+    }, {
+      "name" : "NOT",
+      "value" : 23
+    }, {
+      "name" : "ADD",
+      "value" : 24
+    }, {
+      "name" : "SUB",
+      "value" : 25
+    }, {
+      "name" : "MUL",
+      "value" : 26
+    }, {
+      "name" : "DIV",
+      "value" : 27
+    }, {
+      "name" : "MOD",
+      "value" : 28
+    }, {
+      "name" : "FLOOR",
+      "value" : 183
+    }, {
+      "name" : "CEIL",
+      "value" : 184
+    }, {
+      "name" : "ROUND",
+      "value" : 185
+    }, {
+      "name" : "APPEND",
+      "value" : 29
+    }, {
+      "name" : "PREPEND",
+      "value" : 80
+    }, {
+      "name" : "DIFFERENCE",
+      "value" : 95
+    }, {
+      "name" : "SET_INSERT",
+      "value" : 88
+    }, {
+      "name" : "SET_INTERSECTION",
+      "value" : 89
+    }, {
+      "name" : "SET_UNION",
+      "value" : 90
+    }, {
+      "name" : "SET_DIFFERENCE",
+      "value" : 91
+    }, {
+      "name" : "SLICE",
+      "value" : 30
+    }, {
+      "name" : "SKIP",
+      "value" : 70
+    }, {
+      "name" : "LIMIT",
+      "value" : 71
+    }, {
+      "name" : "OFFSETS_OF",
+      "value" : 87
+    }, {
+      "name" : "CONTAINS",
+      "value" : 93
+    }, {
+      "name" : "GET_FIELD",
+      "value" : 31
+    }, {
+      "name" : "KEYS",
+      "value" : 94
+    }, {
+      "name" : "VALUES",
+      "value" : 186
+    }, {
+      "name" : "OBJECT",
+      "value" : 143
+    }, {
+      "name" : "HAS_FIELDS",
+      "value" : 32
+    }, {
+      "name" : "WITH_FIELDS",
+      "value" : 96
+    }, {
+      "name" : "PLUCK",
+      "value" : 33
+    }, {
+      "name" : "WITHOUT",
+      "value" : 34
+    }, {
+      "name" : "MERGE",
+      "value" : 35
+    }, {
+      "name" : "BETWEEN_DEPRECATED",
+      "value" : 36
+    }, {
+      "name" : "BETWEEN",
+      "value" : 182
+    }, {
+      "name" : "REDUCE",
+      "value" : 37
+    }, {
+      "name" : "MAP",
+      "value" : 38
+    }, {
+      "name" : "FOLD",
+      "value" : 187
+    }, {
+      "name" : "FILTER",
+      "value" : 39
+    }, {
+      "name" : "CONCAT_MAP",
+      "value" : 40
+    }, {
+      "name" : "ORDER_BY",
+      "value" : 41
+    }, {
+      "name" : "DISTINCT",
+      "value" : 42
+    }, {
+      "name" : "COUNT",
+      "value" : 43
+    }, {
+      "name" : "IS_EMPTY",
+      "value" : 86
+    }, {
+      "name" : "UNION",
+      "value" : 44
+    }, {
+      "name" : "NTH",
+      "value" : 45
+    }, {
+      "name" : "BRACKET",
+      "value" : 170
+    }, {
+      "name" : "INNER_JOIN",
+      "value" : 48
+    }, {
+      "name" : "OUTER_JOIN",
+      "value" : 49
+    }, {
+      "name" : "EQ_JOIN",
+      "value" : 50
+    }, {
+      "name" : "ZIP",
+      "value" : 72
+    }, {
+      "name" : "RANGE",
+      "value" : 173
+    }, {
+      "name" : "INSERT_AT",
+      "value" : 82
+    }, {
+      "name" : "DELETE_AT",
+      "value" : 83
+    }, {
+      "name" : "CHANGE_AT",
+      "value" : 84
+    }, {
+      "name" : "SPLICE_AT",
+      "value" : 85
+    }, {
+      "name" : "COERCE_TO",
+      "value" : 51
+    }, {
+      "name" : "TYPE_OF",
+      "value" : 52
+    }, {
+      "name" : "UPDATE",
+      "value" : 53
+    }, {
+      "name" : "DELETE",
+      "value" : 54
+    }, {
+      "name" : "REPLACE",
+      "value" : 55
+    }, {
+      "name" : "INSERT",
+      "value" : 56
+    }, {
+      "name" : "DB_CREATE",
+      "value" : 57
+    }, {
+      "name" : "DB_DROP",
+      "value" : 58
+    }, {
+      "name" : "DB_LIST",
+      "value" : 59
+    }, {
+      "name" : "TABLE_CREATE",
+      "value" : 60
+    }, {
+      "name" : "TABLE_DROP",
+      "value" : 61
+    }, {
+      "name" : "TABLE_LIST",
+      "value" : 62
+    }, {
+      "name" : "CONFIG",
+      "value" : 174
+    }, {
+      "name" : "STATUS",
+      "value" : 175
+    }, {
+      "name" : "WAIT",
+      "value" : 177
+    }, {
+      "name" : "RECONFIGURE",
+      "value" : 176
+    }, {
+      "name" : "REBALANCE",
+      "value" : 179
+    }, {
+      "name" : "SYNC",
+      "value" : 138
+    }, {
+      "name" : "GRANT",
+      "value" : 188
+    }, {
+      "name" : "INDEX_CREATE",
+      "value" : 75
+    }, {
+      "name" : "INDEX_DROP",
+      "value" : 76
+    }, {
+      "name" : "INDEX_LIST",
+      "value" : 77
+    }, {
+      "name" : "INDEX_STATUS",
+      "value" : 139
+    }, {
+      "name" : "INDEX_WAIT",
+      "value" : 140
+    }, {
+      "name" : "INDEX_RENAME",
+      "value" : 156
+    }, {
+      "name" : "SET_WRITE_HOOK",
+      "value" : 189
+    }, {
+      "name" : "GET_WRITE_HOOK",
+      "value" : 190
+    }, {
+      "name" : "FUNCALL",
+      "value" : 64
+    }, {
+      "name" : "BRANCH",
+      "value" : 65
+    }, {
+      "name" : "OR",
+      "value" : 66
+    }, {
+      "name" : "AND",
+      "value" : 67
+    }, {
+      "name" : "FOR_EACH",
+      "value" : 68
+    }, {
+      "name" : "FUNC",
+      "value" : 69
+    }, {
+      "name" : "ASC",
+      "value" : 73
+    }, {
+      "name" : "DESC",
+      "value" : 74
+    }, {
+      "name" : "INFO",
+      "value" : 79
+    }, {
+      "name" : "MATCH",
+      "value" : 97
+    }, {
+      "name" : "UPCASE",
+      "value" : 141
+    }, {
+      "name" : "DOWNCASE",
+      "value" : 142
+    }, {
+      "name" : "SAMPLE",
+      "value" : 81
+    }, {
+      "name" : "DEFAULT",
+      "value" : 92
+    }, {
+      "name" : "JSON",
+      "value" : 98
+    }, {
+      "name" : "ISO8601",
+      "value" : 99
+    }, {
+      "name" : "TO_ISO8601",
+      "value" : 100
+    }, {
+      "name" : "EPOCH_TIME",
+      "value" : 101
+    }, {
+      "name" : "TO_EPOCH_TIME",
+      "value" : 102
+    }, {
+      "name" : "NOW",
+      "value" : 103
+    }, {
+      "name" : "IN_TIMEZONE",
+      "value" : 104
+    }, {
+      "name" : "DURING",
+      "value" : 105
+    }, {
+      "name" : "DATE",
+      "value" : 106
+    }, {
+      "name" : "TIME_OF_DAY",
+      "value" : 126
+    }, {
+      "name" : "TIMEZONE",
+      "value" : 127
+    }, {
+      "name" : "YEAR",
+      "value" : 128
+    }, {
+      "name" : "MONTH",
+      "value" : 129
+    }, {
+      "name" : "DAY",
+      "value" : 130
+    }, {
+      "name" : "DAY_OF_WEEK",
+      "value" : 131
+    }, {
+      "name" : "DAY_OF_YEAR",
+      "value" : 132
+    }, {
+      "name" : "HOURS",
+      "value" : 133
+    }, {
+      "name" : "MINUTES",
+      "value" : 134
+    }, {
+      "name" : "SECONDS",
+      "value" : 135
+    }, {
+      "name" : "TIME",
+      "value" : 136
+    }, {
+      "name" : "MONDAY",
+      "value" : 107
+    }, {
+      "name" : "TUESDAY",
+      "value" : 108
+    }, {
+      "name" : "WEDNESDAY",
+      "value" : 109
+    }, {
+      "name" : "THURSDAY",
+      "value" : 110
+    }, {
+      "name" : "FRIDAY",
+      "value" : 111
+    }, {
+      "name" : "SATURDAY",
+      "value" : 112
+    }, {
+      "name" : "SUNDAY",
+      "value" : 113
+    }, {
+      "name" : "JANUARY",
+      "value" : 114
+    }, {
+      "name" : "FEBRUARY",
+      "value" : 115
+    }, {
+      "name" : "MARCH",
+      "value" : 116
+    }, {
+      "name" : "APRIL",
+      "value" : 117
+    }, {
+      "name" : "MAY",
+      "value" : 118
+    }, {
+      "name" : "JUNE",
+      "value" : 119
+    }, {
+      "name" : "JULY",
+      "value" : 120
+    }, {
+      "name" : "AUGUST",
+      "value" : 121
+    }, {
+      "name" : "SEPTEMBER",
+      "value" : 122
+    }, {
+      "name" : "OCTOBER",
+      "value" : 123
+    }, {
+      "name" : "NOVEMBER",
+      "value" : 124
+    }, {
+      "name" : "DECEMBER",
+      "value" : 125
+    }, {
+      "name" : "LITERAL",
+      "value" : 137
+    }, {
+      "name" : "GROUP",
+      "value" : 144
+    }, {
+      "name" : "SUM",
+      "value" : 145
+    }, {
+      "name" : "AVG",
+      "value" : 146
+    }, {
+      "name" : "MIN",
+      "value" : 147
+    }, {
+      "name" : "MAX",
+      "value" : 148
+    }, {
+      "name" : "SPLIT",
+      "value" : 149
+    }, {
+      "name" : "UNGROUP",
+      "value" : 150
+    }, {
+      "name" : "RANDOM",
+      "value" : 151
+    }, {
+      "name" : "CHANGES",
+      "value" : 152
+    }, {
+      "name" : "ARGS",
+      "value" : 154
+    }, {
+      "name" : "BINARY",
+      "value" : 155
+    }, {
+      "name" : "GEOJSON",
+      "value" : 157
+    }, {
+      "name" : "TO_GEOJSON",
+      "value" : 158
+    }, {
+      "name" : "POINT",
+      "value" : 159
+    }, {
+      "name" : "LINE",
+      "value" : 160
+    }, {
+      "name" : "POLYGON",
+      "value" : 161
+    }, {
+      "name" : "DISTANCE",
+      "value" : 162
+    }, {
+      "name" : "INTERSECTS",
+      "value" : 163
+    }, {
+      "name" : "INCLUDES",
+      "value" : 164
+    }, {
+      "name" : "CIRCLE",
+      "value" : 165
+    }, {
+      "name" : "GET_INTERSECTING",
+      "value" : 166
+    }, {
+      "name" : "FILL",
+      "value" : 167
+    }, {
+      "name" : "GET_NEAREST",
+      "value" : 168
+    }, {
+      "name" : "POLYGON_SUB",
+      "value" : 171
+    }, {
+      "name" : "TO_JSON_STRING",
+      "value" : 172
+    }, {
+      "name" : "MINVAL",
+      "value" : 180
+    }, {
+      "name" : "MAXVAL",
+      "value" : 181
+    }, {
+      "name" : "BIT_AND",
+      "value" : 191
+    }, {
+      "name" : "BIT_OR",
+      "value" : 192
+    }, {
+      "name" : "BIT_XOR",
+      "value" : 193
+    }, {
+      "name" : "BIT_NOT",
+      "value" : 194
+    }, {
+      "name" : "BIT_SAL",
+      "value" : 195
+    }, {
+      "name" : "BIT_SAR",
+      "value" : 196
+    } ]
+  }, {
+    "type" : "TermType",
+    "name" : "type",
+    "value" : 1,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "Datum",
+    "name" : "datum",
+    "value" : 2,
+    "options" : null,
+    "modifier" : "OPTIONAL"
+  }, {
+    "type" : "Term",
+    "name" : "args",
+    "value" : 3,
+    "options" : null,
+    "modifier" : "REPEATED"
+  }, {
+    "moduleName" : "AssocPair",
+    "child" : [ {
+      "type" : "string",
+      "name" : "key",
+      "value" : 1,
+      "options" : null,
+      "modifier" : "OPTIONAL"
+    }, {
+      "type" : "Term",
+      "name" : "val",
+      "value" : 2,
+      "options" : null,
+      "modifier" : "OPTIONAL"
+    } ]
+  }, {
+    "type" : "AssocPair",
+    "name" : "optargs",
+    "value" : 4,
+    "options" : null,
+    "modifier" : "REPEATED"
+  } ]
+} ]
