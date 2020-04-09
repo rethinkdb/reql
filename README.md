@@ -6,6 +6,10 @@ This repository holds files and folders specifying ReQL, to some extent or anoth
 
 Protobuf file which defines the basic communication between clients and servers. [Original file](https://github.com/rethinkdb/rethinkdb/blob/next/src/rdb_protocol/ql2.proto).
 
+## ql2.proto.json
+
+Protobuf file parsed as JSON. Contains the same information as the `ql2.proto` file, but can be parsed by any standard JSON parser.
+
 ## error_hierarchy.json
 
 Hierarchy of the errors. Parseable version of [this article](https://rethinkdb.com/docs/error-types/).
