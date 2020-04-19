@@ -1,0 +1,8 @@
+{
+  "array": "json_native",
+  "bool": "json_native",
+  "null": "json_native",
+  "num": "json_native",
+  "object": "json_native",
+  "str": "json_native"
+}

@@ -1,0 +1,20 @@
+{
+  "optargs/format": ["union", ["raw", "native"]],
+  "optargs/durability": ["union", ["hard", "soft"]],
+  "optargs/conflict": ["union", ["error", "replace", "update"]],
+  "optargs/read_mode": ["union", ["single", "majority", "outdated"]],
+  "optargs/identifier_format": ["union", ["name", "uuid"]],
+  "optargs/bound": ["union", ["open", "closed"]],
+  "optargs/status": ["union", [
+    "ready_for_outdated_reads",
+    "ready_for_reads",
+    "ready_for_writes",
+    "all_replicas_ready"
+  ]],
+  "optargs/emergency_repair": ["union", ["unsafe_rollback", "unsafe_rollback_or_erase"]],
+  "optargs/result_format": ["union", ["text", "json", "jsonp", "binary", "auto"]],
+  "optargs/http_method": ["union", ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"]],
+  "optargs/auth_type": ["union", ["basic", "digest"]],
+  "optargs/geo_system": ["union", ["WGS84", "unit_sphere"]],
+  "optargs/unit": ["union", ["m", "km", "mi", "nm", "ft"]]
+}
